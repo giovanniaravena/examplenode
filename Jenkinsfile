@@ -23,6 +23,7 @@ pipeline {
                     }
                     steps {
                         echo "Build Node JS"
+                        echo "Build Node JS2"
                     }
                 }
                 stage('Upload Scan')
