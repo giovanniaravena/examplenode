@@ -34,10 +34,8 @@ pipeline {
                     // }
                     steps {
                         sh 'ls'
-                        sh 'git clone https://github.com/giovanniaravena/examplenode'
-                        sh 'ls'
                         sh 'pwd'
-                        zip zipFile: 'test.zip', archive: false, dir: 'examplenode'
+                        zip zipFile: 'test.zip', archive: false, dir: '../examplenode'
                         archiveArtifacts artifacts: 'test.zip', fingerprint: true
                         
                         veracode applicationName: 'Demo', canFailJob: true, createSandbox: true, criticality: 'VeryHigh', debug: true, fileNamePattern: '', replacementPattern: '', sandboxName: '', scanExcludesPattern: '', scanIncludesPattern: '', scanName: 'TestJenkins', teams: '', uploadIncludesPattern: 'test.zip', vid: 'b42d9a0dc0502a2c2ac0f19a8d9d8bf9', vkey: 'eaacc0db208b00a9750441fb3e8b1eade495e63bde69f89b0447d83924becdf49e50a2e89e9fa1f398b7b3ab037333a7f4aee17765f613a5b78f247c5af9a94b'
