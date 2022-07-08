@@ -35,6 +35,7 @@ pipeline {
                     steps {
                         sh 'ls'
                         sh 'pwd'
+                        sh 'rm test.zip'
                         zip zipFile: 'test.zip', archive: false, dir: ''
                         archiveArtifacts artifacts: 'test.zip', fingerprint: true
                         
