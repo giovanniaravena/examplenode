@@ -30,6 +30,7 @@ pipeline {
                         label "for-uploadscan"
                     }
                     steps {
+                        sh 'ls'
                         sh 'git clone https://github.com/giovanniaravena/examplenode'
                         sh 'ls'
                         sh 'pwd'
