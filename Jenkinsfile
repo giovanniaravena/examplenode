@@ -24,11 +24,12 @@ pipeline {
                     //     label "for-branch-a"
                     // }
                     steps {
+                        echo "Build Node JS"
+                        echo "Build Node JS2"
                         script{
                           dockerLib.build(Saludo: "hello jenkins!!!")
                         }
-                        echo "Build Node JS"
-                        echo "Build Node JS2"
+                        
                     }
                 }
                 stage('Upload Scan'){
