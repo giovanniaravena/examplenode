@@ -25,7 +25,7 @@ pipeline {
                     // }
                     steps {
                         script{
-                          dockerLib.build(Saludo: "hello jenkins")
+                          dockerLib.build(Saludo: "hello jenkins!!!")
                         }
                         echo "Build Node JS"
                         echo "Build Node JS2"
