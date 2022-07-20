@@ -37,9 +37,14 @@ pipeline {
                     steps {
                         sh 'ls'
                         sh 'pwd'
-                        sh 'rm test.zip'
+                        if (fileExists('test.zip')) {
+                            sh 'rm test.zip'
+                        } 
                         zip zipFile: 'test.zip', archive: false, dir: ''
                         archiveArtifacts artifacts: 'test.zip', fingerprint: true
+                        
+                        
+                        
                         // script{
                         //   policyScanLib.uploadArtifact(ApplicationName: "Demo", UploadIncludesPattern: "test.zip", Id: 'b42d9a0dc0502a2c2ac0f19a8d9d8bf9', Key: 'eaacc0db208b00a9750441fb3e8b1eade495e63bde69f89b0447d83924becdf49e50a2e89e9fa1f398b7b3ab037333a7f4aee17765f613a5b78f247c5af9a94b')
                         // }
