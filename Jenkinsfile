@@ -1,4 +1,4 @@
-@Library('VeracodeSharedLib')
+@Library('VeracodeSharedLib') _
 pipeline {
     agent any
     stages {
