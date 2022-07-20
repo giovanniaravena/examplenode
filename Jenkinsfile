@@ -40,9 +40,10 @@ pipeline {
                         sh 'rm test.zip'
                         zip zipFile: 'test.zip', archive: false, dir: ''
                         archiveArtifacts artifacts: 'test.zip', fingerprint: true
-                        script{
-                          policyScanLib.uploadArtifact(ApplicationName: "Demo", UploadIncludesPattern: "test.zip", Id: 'b42d9a0dc0502a2c2ac0f19a8d9d8bf9', Key: 'eaacc0db208b00a9750441fb3e8b1eade495e63bde69f89b0447d83924becdf49e50a2e89e9fa1f398b7b3ab037333a7f4aee17765f613a5b78f247c5af9a94b')
-                        }
+                        // script{
+                        //   policyScanLib.uploadArtifact(ApplicationName: "Demo", UploadIncludesPattern: "test.zip", Id: 'b42d9a0dc0502a2c2ac0f19a8d9d8bf9', Key: 'eaacc0db208b00a9750441fb3e8b1eade495e63bde69f89b0447d83924becdf49e50a2e89e9fa1f398b7b3ab037333a7f4aee17765f613a5b78f247c5af9a94b')
+                        // }
+                        veracode applicationName: "Demo", canFailJob: true, criticality: 'VeryHigh', debug: true, deleteIncompleteScan: true, fileNamePattern: '', replacementPattern: '', createSandbox: false, sandboxName: '', scanExcludesPattern: '', scanIncludesPattern: '', scanName: '', teams: '', timeout: 60, uploadIncludesPattern: "test.zip", vid: "b42d9a0dc0502a2c2ac0f19a8d9d8bf9", vkey: "eaacc0db208b00a9750441fb3e8b1eade495e63bde69f89b0447d83924becdf49e50a2e89e9fa1f398b7b3ab037333a7f4aee17765f613a5b78f247c5af9a94b", waitForScan: false
                         // veracode applicationName: 'Demo', canFailJob: true, createSandbox: true, criticality: 'VeryHigh', debug: true, fileNamePattern: '', replacementPattern: '', sandboxName: 'TestJenkins2', scanExcludesPattern: '', scanIncludesPattern: '', scanName: 'scan', teams: '', uploadIncludesPattern: 'test.zip', vid: 'b42d9a0dc0502a2c2ac0f19a8d9d8bf9', vkey: 'eaacc0db208b00a9750441fb3e8b1eade495e63bde69f89b0447d83924becdf49e50a2e89e9fa1f398b7b3ab037333a7f4aee17765f613a5b78f247c5af9a94b'
                         // veracode applicationName: 'Demo', canFailJob: true, criticality: 'VeryHigh', debug: true, fileNamePattern: '', replacementPattern: '', sandboxName: 'TestJenkins', scanExcludesPattern: '', scanIncludesPattern: '', scanName: '', teams: '', uploadIncludesPattern: 'test.zip', vid: 'b42d9a0dc0502a2c2ac0f19a8d9d8bf9', vkey: 'eaacc0db208b00a9750441fb3e8b1eade495e63bde69f89b0447d83924becdf49e50a2e89e9fa1f398b7b3ab037333a7f4aee17765f613a5b78f247c5af9a94b'
                     
