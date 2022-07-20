@@ -34,12 +34,16 @@ pipeline {
                     // agent {
                     //     label "for-uploadscan"
                     // }
+                    when { expression { return fileExists ('test.zip') } }
                     steps {
                         sh 'ls'
                         sh 'pwd'
-                        if (fileExists('test.zip')) {
+                        script{
+                          if (fileExists('test.zip')) {
                             sh 'rm test.zip'
-                        } 
+                          } 
+                        }
+                        
                         zip zipFile: 'test.zip', archive: false, dir: ''
                         archiveArtifacts artifacts: 'test.zip', fingerprint: true
                         
